@@ -1,6 +1,6 @@
 
 # Create a special matrix
-makeCacheMatrix <- function(x = (matrix(c(1, 2, 3, 4), nrow = 2))
+makeCacheMatrix <- function(x = (matrix(c(1, 2, 3), nrow = 2))
 
 # Compute the inverse of the special matrix
 A_inv <- solve(A)
