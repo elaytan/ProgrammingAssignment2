@@ -1,0 +1,29 @@
+
+# Create a special matrix
+makeCacheMatrix <- function(x = (matrix(c(1, 2, 3, 4), nrow = 2))
+
+# Compute the inverse of the special matrix
+A_inv <- solve(A)
+
+# Compute the inverse again (this time from the cache)
+A_inv_cached <- solve(A)
+
+# Print the results
+cat("Matrix A:\n")
+print(A@data)
+
+cachesolve <- function(x, ...) {
+  # Check if the inverse has already been computed and cached
+  if (!is.null(x$getInverse())) {
+    message("Retrieving cached inverse.")
+    return(x$getInverse())
+  }
+  
+  # If the inverse has not been computed and cached, compute it
+  data <- x$get()
+  inv <- solve(data, ...)
+  
+  # Cache the inverse and return it
+  x$setInverse(inv)
+  inv
+}
